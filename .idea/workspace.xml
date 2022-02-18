@@ -120,7 +120,7 @@
       <recent name="com.company.database.jdbc.query" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainJPA">
+  <component name="RunManager" selected="Spring Boot.MainSpringDataJPA">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.database.MainJDBC" />
       <module name="untitled104" />
