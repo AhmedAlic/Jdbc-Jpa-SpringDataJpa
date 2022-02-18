@@ -16,7 +16,6 @@ public class Statements {
     private static final String INSERT_INTO_OCCUPATIONS = "INSERT INTO occupations (id, name, occupation) VALUES (?, ?, ?)";
     private static final String UPDATE_INTO_OCCUPATIONS = "UPDATE occupations SET name = ?, occupation = ? WHERE id = ?";
     private static final String DELETE_FROM_OCCUPATIONS = "DELETE FROM occupations WHERE id = ?";
-    private static final String SELECT_FROM_OCCUPATIONS_QUERY = "{call selectEmployee(?)}";
     private static final String INSERT_INTO_OCCUPATIONS_QUERY = "{call insertEmployee(?, ?, ?)}";
     private final PreparedStatements preparedStatement;
     private final CallableStatements callableStatements;
@@ -35,7 +34,6 @@ public class Statements {
             PreparedStatement updatePStatement = connection.prepareStatement(UPDATE_INTO_OCCUPATIONS);
             PreparedStatement deletePStatement = connection.prepareStatement(DELETE_FROM_OCCUPATIONS);
 
-            CallableStatement selectCStatement = connection.prepareCall(SELECT_FROM_OCCUPATIONS_QUERY);
             CallableStatement insertCStatement = connection.prepareCall(INSERT_INTO_OCCUPATIONS_QUERY);
 
             preparedStatement.selectRecord(selectPStatement);
@@ -43,8 +41,6 @@ public class Statements {
             preparedStatement.updateRecord(updatePStatement);
             preparedStatement.deleteRecord(deletePStatement);
 
-//            Not working, don't know if postgres driver can call stored procedure using callable statement ?
-//            callableStatements.selectRecord(selectCStatement);
             callableStatements.insertRecord(insertCStatement);
 
             connection.commit();

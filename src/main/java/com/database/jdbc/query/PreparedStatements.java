@@ -34,15 +34,13 @@ public class PreparedStatements {
 
     public void insertRecord(PreparedStatement preparedStatement) {
         try {
-            preparedStatement.setInt(1, 1244);
+            preparedStatement.setInt(1, 1245);
             preparedStatement.setString(2, "Josh");
             preparedStatement.setString(3, "Singer");
-            log.info("Preparing to query with prepared statement: " + preparedStatement);
-            int resultSet = preparedStatement.executeUpdate();
-            if (resultSet == 1) {
-                log.info("Insert was successful!");
-            }
+            preparedStatement.executeUpdate();
+            log.info("Insert was successful!");
         } catch (SQLException e) {
+            log.info("Insert was unsuccessful!");
             e.printStackTrace();
         }
     }
@@ -52,25 +50,21 @@ public class PreparedStatements {
             preparedStatement.setString(1, "Raj");
             preparedStatement.setString(2, "Actor");
             preparedStatement.setInt(3, 1240);
-            log.info("Preparing to query with prepared statement: " + preparedStatement);
-            int resultSet = preparedStatement.executeUpdate();
-            if (resultSet == 1) {
-                log.info("Update was successful!");
-            }
+            preparedStatement.executeUpdate();
+            log.info("Update was successful!");
         } catch (SQLException e) {
+            log.info("Update was unsuccessful!");
             e.printStackTrace();
         }
     }
 
     public void deleteRecord(PreparedStatement preparedStatement) {
         try {
-            preparedStatement.setInt(1, 1243);
-            log.info("Preparing to query with prepared statement: " + preparedStatement);
-            int resultSet = preparedStatement.executeUpdate();
-            if (resultSet == 1) {
-                log.info("Delete was successful!");
-            }
+            preparedStatement.setInt(1, 1245);
+            preparedStatement.executeUpdate();
+            log.info("Delete was successful!");
         } catch (SQLException e) {
+            log.info("Delete was unsuccessful!");
             e.printStackTrace();
         }
     }

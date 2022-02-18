@@ -24,7 +24,6 @@ public class MainJPA {
         employee1.setOccupation("Master Chef");
         hibernate.update(employee1);
         List<Employee> employeesList1 = hibernate.findAll();
-        System.out.println(employeesList1);
         log.info("List of {} employees: {}", employeesList1.size(), employeesList1);
         hibernate.deleteById(employee1.getId());
         log.info("List of {} employees after deletion: {}", hibernate.findAll().size(), hibernate.findAll());
@@ -36,7 +35,6 @@ public class MainJPA {
         employee2.setOccupation("Professor");
         jpa.update(employee2);
         List<Employee> employeesList2 = jpa.findAll();
-        System.out.println(employeesList2);
         log.info("List of {} employees: {}", employeesList2.size(), employeesList2);
         jpa.deleteById(employee2.getId());
         log.info("List of {} employees after deletion: {}", jpa.findAll().size(), jpa.findAll());

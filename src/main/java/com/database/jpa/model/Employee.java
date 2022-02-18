@@ -1,10 +1,17 @@
 package com.database.jpa.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "Employees")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Employee implements Serializable {
 
     @Id
@@ -16,46 +23,4 @@ public class Employee implements Serializable {
 
     @Column(name = "occupation")
     private String occupation;
-
-    public Employee(Long id, String name, String occupation) {
-        this.id = id;
-        this.name = name;
-        this.occupation = occupation;
-    }
-
-    public Employee() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getOccupation() {
-        return occupation;
-    }
-
-    public void setOccupation(String occupation) {
-        this.occupation = occupation;
-    }
-
-    @Override
-    public String toString() {
-        return "Occupations{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", occupation='" + occupation + '\'' +
-                '}';
-    }
 }
