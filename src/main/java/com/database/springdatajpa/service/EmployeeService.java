@@ -8,7 +8,7 @@ public interface EmployeeService {
 
     List<Employee> findAll();
     Employee findById(Long id);
-    void insert(Employee employee);
+    void saveOrUpdate(Employee employee);
     void update(Employee employee);
     void deleteById(Long id) ;
     void deleteAll();

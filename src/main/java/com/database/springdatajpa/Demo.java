@@ -21,7 +21,7 @@ public class Demo implements CommandLineRunner {
     @Override
     public void run(String... args) {
         Employee employee = new Employee(100L, "Phillipe", "Chef");
-        employeeService.insert(employee);
+        employeeService.saveOrUpdate(employee);
         Employee emp1 = employeeService.findById(employee.getId());
         log.info("Inserted employee: {}", emp1);
         employee.setOccupation("Master Chef");
