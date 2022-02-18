@@ -7,7 +7,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
 
 @Component
 @Slf4j
@@ -23,7 +22,7 @@ public class Demo implements CommandLineRunner {
     public void run(String... args) {
         Employee employee = new Employee(100L, "Phillipe", "Chef");
         employeeService.insert(employee);
-        Optional<Employee> emp1 = employeeService.findById(employee.getId());
+        Employee emp1 = employeeService.findById(employee.getId());
         log.info("Inserted employee: {}", emp1);
         employee.setOccupation("Master Chef");
         employeeService.update(employee);
