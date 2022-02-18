@@ -33,8 +33,8 @@ public class Demo implements CommandLineRunner {
         List<Employee> employeesList1 = employeeService.findAll();
         log.info("List of {} employees: {}", employeesList1.size(), employeesList1);
         employeeService.deleteById(employee1.getId());
-        log.info("List of {} employees after deletion: {}", employeeService.findAll().size(), employeeService);
+        log.info("List of {} employees after deletion: {}", employeeService.findAll().size(), employeeService.findAll());
         employeeService.deleteAll();
-        log.info("List of {} employees after deletion: {}", employeeService.findAll().size(), employeeService);
+        log.info("List of {} employees after deletion: {}", employeeService.findAll().size(), employeeService.findAll());
     }
 }
