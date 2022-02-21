@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -25,7 +26,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     @Transactional
     public Employee findById(Long id) {
-        return employeeRepository.findById(id).get();
+        Optional<Employee> employee = employeeRepository.findById(id);
+        return employee.orElse(null);
     }
 
     @Override
