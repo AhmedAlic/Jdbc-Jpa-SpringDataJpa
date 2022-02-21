@@ -31,31 +31,36 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     @Transactional
-    public Employee findById(Long id) {
+    @Async
+    public CompletableFuture<Employee> findById(Long id) {
         Optional<Employee> employee = employeeRepository.findById(id);
-        return employee.orElse(null);
+        return CompletableFuture.completedFuture(employee.orElse(null));
     }
 
     @Override
     @Transactional
+    @Async
     public void saveOrUpdate(Employee employee) {
         employeeRepository.save(employee);
     }
 
     @Override
     @Transactional
+    @Async
     public void update(Employee employee) {
         employeeRepository.save(employee);
     }
 
     @Override
     @Transactional
+    @Async
     public void deleteById(Long id) {
         employeeRepository.deleteById(id);
     }
 
     @Override
     @Transactional
+    @Async
     public void deleteAll() {
         employeeRepository.deleteAll();
     }
