@@ -2,11 +2,13 @@ package com.database.springdatajpa;
 
 import com.database.jpa.model.Employee;
 import com.database.springdatajpa.service.EmployeeServiceImpl;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 @Component
 @Slf4j
@@ -18,6 +20,7 @@ public class Demo implements CommandLineRunner {
         this.employeeService = employeeService;
     }
 
+    @SneakyThrows
     @Override
     public void run(String... args) {
         Employee employee1 = new Employee(100L, "Phillipe", "Chef");
@@ -30,11 +33,11 @@ public class Demo implements CommandLineRunner {
         log.info("Inserted employee1: {}", emp1);
         employee1.setOccupation("Master Chef");
         employeeService.update(employee1);
-        List<Employee> employeesList1 = employeeService.findAll();
-        log.info("List of {} employees: {}", employeesList1.size(), employeesList1);
+        CompletableFuture<List<Employee>> employeesList1 = employeeService.findAll();
+        log.info("List of {} employees: {}", employeesList1.get().size(), employeesList1);
         employeeService.deleteById(employee1.getId());
-        log.info("List of {} employees after deletion: {}", employeeService.findAll().size(), employeeService.findAll());
+        log.info("List of {} employees after deletion: {}", employeeService.findAll().get().size(), employeeService.findAll());
         employeeService.deleteAll();
-        log.info("List of {} employees after deletion: {}", employeeService.findAll().size(), employeeService.findAll());
+        log.info("List of {} employees after deletion: {}", employeeService.findAll().get().size(), employeeService.findAll());
     }
 }

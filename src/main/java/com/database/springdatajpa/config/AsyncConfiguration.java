@@ -16,10 +16,10 @@ public class AsyncConfiguration {
     @Bean
     public Executor taskExecutor() {
         log.info("Creating Async task executor...");
-        var executor = new ThreadPoolTaskExecutor();
-        executor.setCorePoolSize(2);
-        executor.setMaxPoolSize(2);
-        executor.setQueueCapacity(100);
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        executor.setCorePoolSize(5);
+        executor.setMaxPoolSize(5);
+        executor.setQueueCapacity(1000);
         executor.setThreadNamePrefix("EmployeeWorker-");
         executor.initialize();
         return executor;
