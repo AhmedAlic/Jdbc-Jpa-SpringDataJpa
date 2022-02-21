@@ -27,6 +27,8 @@ public class MainJPA {
         log.info("List of {} employees: {}", employeesList1.size(), employeesList1);
         hibernate.deleteById(employee1.getId());
         log.info("List of {} employees after deletion: {}", hibernate.findAll().size(), hibernate.findAll());
+        hibernate.deleteAll();
+        log.info("List of {} employees after deletion: {}", hibernate.findAll().size(), hibernate.findAll());
         Hibernate.shutdown();
 
         jpa.insert(employee2);
@@ -37,6 +39,8 @@ public class MainJPA {
         List<Employee> employeesList2 = jpa.findAll();
         log.info("List of {} employees: {}", employeesList2.size(), employeesList2);
         jpa.deleteById(employee2.getId());
+        log.info("List of {} employees after deletion: {}", jpa.findAll().size(), jpa.findAll());
+        jpa.deleteAll();
         log.info("List of {} employees after deletion: {}", jpa.findAll().size(), jpa.findAll());
         Jpa.closeEntityManager();
     }

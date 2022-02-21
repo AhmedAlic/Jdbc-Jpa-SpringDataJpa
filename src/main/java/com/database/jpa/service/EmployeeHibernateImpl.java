@@ -81,4 +81,19 @@ public class EmployeeHibernateImpl implements EmployeeDAO {
             }
         }
     }
+
+    @Override
+    public void deleteAll() {
+        Transaction transaction = null;
+        try (Session session = Hibernate.getSession()) {
+            transaction = session.beginTransaction();
+            session.createNativeQuery("DELETE  FROM Employee", Employee.class).executeUpdate();
+            transaction.commit();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        }
+    }
 }

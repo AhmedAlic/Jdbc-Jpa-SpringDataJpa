@@ -36,6 +36,7 @@ public class EmployeeJPAImpl implements EmployeeDAO {
             entityManager.persist(employee);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
+            e.printStackTrace();
             entityManager.getTransaction().rollback();
         }
     }
@@ -48,6 +49,7 @@ public class EmployeeJPAImpl implements EmployeeDAO {
             entityManager.merge(employee);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
+            e.printStackTrace();
             entityManager.getTransaction().rollback();
         }
     }
@@ -61,6 +63,20 @@ public class EmployeeJPAImpl implements EmployeeDAO {
             entityManager.remove(emp);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }
+    }
+
+    @Override
+    public void deleteAll() {
+        entityManager = Jpa.getEntityManager();
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.createNativeQuery("DELETE  FROM Employee", Employee.class).executeUpdate();
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
             entityManager.getTransaction().rollback();
         }
     }
