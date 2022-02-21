@@ -40,15 +40,23 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     @Transactional
     @Async
-    public void saveOrUpdate(Employee employee) {
-        employeeRepository.save(employee);
+    public CompletableFuture<Employee> insert(Employee employee) {
+        return CompletableFuture.completedFuture(employeeRepository.save(employee));
     }
 
     @Override
     @Transactional
     @Async
-    public void update(Employee employee) {
-        employeeRepository.save(employee);
+    public CompletableFuture<Employee> update(Employee newEmployee, Long id) {
+        Optional<Employee> oldEmployee = employeeRepository.findById(id);
+        return CompletableFuture.completedFuture(oldEmployee.map(employee -> {
+            employee.setName(newEmployee.getName());
+            employee.setOccupation(newEmployee.getOccupation());
+            return employeeRepository.save(employee);
+        }).orElseGet(() -> {
+            newEmployee.setId(id);
+            return employeeRepository.save(newEmployee);
+        }));
     }
 
     @Override

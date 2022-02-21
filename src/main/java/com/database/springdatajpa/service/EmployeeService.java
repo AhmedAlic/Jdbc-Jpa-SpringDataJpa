@@ -9,8 +9,8 @@ public interface EmployeeService {
 
     CompletableFuture<List<Employee>> findAll();
     CompletableFuture<Employee> findById(Long id);
-    void saveOrUpdate(Employee employee);
-    void update(Employee employee);
+    CompletableFuture<Employee> insert(Employee employee);
+    CompletableFuture<Employee> update(Employee employee, Long id);
     void deleteById(Long id);
     void deleteAll();
 }
