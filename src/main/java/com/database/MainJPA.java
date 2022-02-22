@@ -19,6 +19,7 @@ public class MainJPA {
         Employee employee2 = new Employee(200L, "Jaylen", "Assistant");
 
         hibernate.insert(employee1);
+        hibernate.insert(employee2);
         Employee emp1 = hibernate.findById(employee1.getId());
         log.info("Inserted employee: {}", emp1);
         employee1.setOccupation("Master Chef");
@@ -32,6 +33,7 @@ public class MainJPA {
         Hibernate.shutdown();
 
         jpa.insert(employee2);
+        jpa.insert(employee1);
         Employee emp2 = jpa.findById(employee2.getId());
         log.info("Inserted employee: {}", emp2);
         employee2.setOccupation("Professor");

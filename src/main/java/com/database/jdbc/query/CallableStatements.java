@@ -10,7 +10,7 @@ public class CallableStatements {
 
     public void insertRecord(CallableStatement callableStatement) {
         try {
-            callableStatement.setInt(1, 1246);
+            callableStatement.setInt(1, 1245);
             callableStatement.setString(2, "John");
             callableStatement.setString(3, "Programmer");
             callableStatement.execute();
