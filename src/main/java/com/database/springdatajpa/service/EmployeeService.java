@@ -8,9 +8,14 @@ import java.util.concurrent.CompletableFuture;
 public interface EmployeeService {
 
     CompletableFuture<List<Employee>> findAll();
+
     CompletableFuture<Employee> findById(Long id);
+
     CompletableFuture<Employee> insert(Employee employee);
+
     CompletableFuture<Employee> update(Employee employee, Long id);
+
     void deleteById(Long id);
+
     void deleteAll();
 }

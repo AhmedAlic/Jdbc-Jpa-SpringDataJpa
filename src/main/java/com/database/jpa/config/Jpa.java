@@ -28,5 +28,4 @@ public class Jpa {
     public static boolean isActive() {
         return entityManagerFactory.isOpen();
     }
-
 }

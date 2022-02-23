@@ -3,6 +3,8 @@ spring:
     database: POSTGRESQL
     show-sql: true
     hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       ddl-auto: create
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
