@@ -1,6 +1,6 @@
 package com.database.springdatajpa.repository;
 
-import com.database.jpa.model.Employee;
+import com.database.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

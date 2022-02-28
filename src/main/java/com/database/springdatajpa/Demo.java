@@ -1,7 +1,7 @@
 package com.database.springdatajpa;
 
-import com.database.jpa.model.Employee;
-import com.database.springdatajpa.service.EmployeeServiceImpl;
+import com.database.model.Employee;
+import com.database.springdatajpa.service.EmployeeService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
@@ -14,9 +14,9 @@ import java.util.concurrent.CompletableFuture;
 @Slf4j
 public class Demo implements CommandLineRunner {
 
-    private final EmployeeServiceImpl employeeService;
+    private final EmployeeService employeeService;
 
-    public Demo(EmployeeServiceImpl employeeService) {
+    public Demo(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 

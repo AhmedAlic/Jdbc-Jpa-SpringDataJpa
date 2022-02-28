@@ -11,7 +11,7 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- add annotated resources here -->
-        <mapping class="com.database.jpa.model.Employee"/>
+        <mapping class="com.database.model.Employee"/>
     </session-factory>
 </hibernate-configuration>
 

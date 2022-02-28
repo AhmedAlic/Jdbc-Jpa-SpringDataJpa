@@ -1,7 +1,7 @@
 package com.database.springdatajpa.controller;
 
-import com.database.jpa.model.Employee;
-import com.database.springdatajpa.service.EmployeeServiceImpl;
+import com.database.model.Employee;
+import com.database.springdatajpa.service.EmployeeService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,9 +11,9 @@ import java.util.concurrent.CompletableFuture;
 @RequestMapping("/api/employees")
 public class EmployeeController {
 
-    private final EmployeeServiceImpl service;
+    private final EmployeeService service;
 
-    public EmployeeController(EmployeeServiceImpl service) {
+    public EmployeeController(EmployeeService service) {
         this.service = service;
     }
 

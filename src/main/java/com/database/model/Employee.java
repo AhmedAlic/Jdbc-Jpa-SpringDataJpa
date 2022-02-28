@@ -1,4 +1,4 @@
-package com.database.jpa.model;
+package com.database.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
