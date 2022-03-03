@@ -1,4 +1,4 @@
-# Jdbc VS Jpa VS SpringDataJpa
+# Jdbc VS Jpa VS Spring Data Jpa
 
 Using Spring minimized effort to connect to various databases such as **PostgreSQL**.
 
